@@ -1,0 +1,976 @@
+apply(as.matrix(theta)[,1] , 1, function(y=y,x) prod(dpois(y, x, log = FALSE)))
+apply(as.matrix(theta)[,1] , 1, function(y=y,x) prod(dpois(y, 0.1, log = FALSE)))
+prod(dpois(y, 0.1, log = FALSE))
+apply(as.matrix(y)[,1] , 1, function(X) prod(dpois(X, theta[1:1501], log = FALSE)))
+head(as.matrix(theta)[,1])
+head(as.matrix(theta))
+apply(as.matrix(y) , 1, function(X) prod(dpois(X, theta[1:1501], log = FALSE)))
+apply(as.matrix(theta) , 1, function(x) prod(dpois(y, x, log = FALSE)))
+plot(apply(as.matrix(theta) , 1, function(x) prod(dpois(y, x, log = FALSE))),type="l")
+plot(theta,apply(as.matrix(theta) , 1, function(x) prod(dpois(y, x, log = FALSE))),type="l")
+length(apply(as.matrix(theta) , 1, function(x) prod(dpois(y, x, log = FALSE))),type="l")
+length(apply(as.matrix(theta) , 1, function(x) prod(dpois(y, x, log = FALSE))))
+plot(theta,apply(as.matrix(theta) , 1, function(x) prod(dpois(y, x, log = FALSE))),type="l")
+set.seed(3)#
+#
+y = rpois(50,0.64)#
+#
+plot(density(y))#
+mu.prior =10.2#
+#
+sigma.prior = 0.5#
+#
+step = 0.01#
+theta = seq(0,15,step)#
+prior = function(theta, mu = mu.prior, sigma= sigma.prior){#
+	alpha = mu^2/sigma^2#
+	beta = mu/sigma^2#
+	return(dgamma(theta, alpha, beta))#
+	}#
+#
+plot(theta,prior(theta),type="l")#
+#
+tmp =rgamma(100000,  mu.prior^2/sigma.prior^2, mu.prior / sigma.prior^2)#
+mean(tmp)#
+sd(tmp)#
+like = function(theta, y){#
+	L = rep(0, length(theta))#
+    for(i in 1:length(theta)) L[i] = prod(dpois(y, theta[i], log = FALSE))#
+    return(L)#
+} #
+#
+plot(theta,like(theta,y),type="l")
+y
+set.seed(3)#
+#
+y = rpois(50,0.64)#
+#
+plot(density(y))#
+mu.prior =10.2#
+#
+sigma.prior = 0.5#
+#
+step = 0.01#
+theta = seq(0,15,step)#
+prior = function(theta, mu = mu.prior, sigma= sigma.prior){#
+	alpha = mu^2/sigma^2#
+	beta = mu/sigma^2#
+	return(dgamma(theta, alpha, beta))#
+	}#
+#
+plot(theta,prior(theta),type="l")#
+#
+tmp =rgamma(100000,  mu.prior^2/sigma.prior^2, mu.prior / sigma.prior^2)#
+mean(tmp)#
+sd(tmp)#
+like = function(theta, y){#
+	L = rep(0, length(theta))#
+    for(i in 1:length(theta)) L[i] = prod(dpois(y, theta[i], log = FALSE))#
+    return(L)#
+} #
+#
+plot(theta,like(theta,y),type="l")
+set.seed(3)#
+#
+y = rpois(50,6.4)#
+#
+plot(density(y))#
+mu.prior =10.2#
+#
+sigma.prior = 0.5#
+#
+step = 0.01#
+theta = seq(0,15,step)#
+prior = function(theta, mu = mu.prior, sigma= sigma.prior){#
+	alpha = mu^2/sigma^2#
+	beta = mu/sigma^2#
+	return(dgamma(theta, alpha, beta))#
+	}#
+#
+plot(theta,prior(theta),type="l")#
+#
+tmp =rgamma(100000,  mu.prior^2/sigma.prior^2, mu.prior / sigma.prior^2)#
+mean(tmp)#
+sd(tmp)#
+like = function(theta, y){#
+	L = rep(0, length(theta))#
+    for(i in 1:length(theta)) L[i] = prod(dpois(y, theta[i], log = FALSE))#
+    return(L)#
+} #
+#
+plot(theta,like(theta,y),type="l")
+plot(theta,apply(as.matrix(theta) , 1, function(x) prod(dpois(y, x, log = FALSE))),type="l")
+library(SESYNCbayes)
+library(SESYNCBayes)
+data(ClimateVote)
+ClimateVote
+dim(ClimateVote)
+sum(ClimateVote[,2])
+pbeta(0.5,39,63)
+pbeta(0.5,39,63,upper.tail)
+pbeta(0.5,39,63,upper.tail=T)
+pbeta(0.5,39,63,lower.tail=F)
+lobs = c(15,8,6,11,4)
+prior.a = 9/(1.5^2)
+prio.b = 3/(1.5^2)
+prior.b = 3/(1.5^2)
+prior.a
+prior.b
+sum(lobs)
+data(SolsticeTemp)
+head(SolsticeTemp)
+dim(SolsticTemp)
+dim(SolsticeTemp)
+sum(SolsticeTemp[,2])
+(30/144)+1538.549
+1538.757/((1/144)+(50/15))
+(30/144)+(1538.549/15)
+102.7783/((1/144)+(50/15))
+((1/144)+(50/15))^-1
+30*38
+data(Chrome)
+data(chrome)
+install.packages("~/GitHub/SESYNCBayes/Packages/SESYNCBayes_0.3.0.tar.gz", repos = NULL, type = "source")
+library(SESYNCBayes)
+data(Chrome)
+Chrome
+mean(Chrome)
+mean(Chrome[,1])
+sd(Chrome[,1])
+var(Chrome[,1])
+sum(Chrome[,1])
+sum(Chrome[,1]-mean(Chrome[,1]))
+sum((Chrome[,1]-mean(Chrome[,1]))^2)
+sum((Chrome[,1]-mean(Chrome[,1]))^2)/2
+sum((Chrome[,1]-225)^2)/2
+muKnown <- 225#
+n <- nrow(Chrome)#
+alphaPrior <- 0.001 #shape#
+betaPrior <- 0.001 #scale#
+#
+alphaPost <-alphaPrior + (n/2)#
+#
+betaPost <- betaPrior + sum((Chrome$conc-muKnown)^2)/2
+betaPost
+alphaPost
+1400/352
+140/3400
+5*58
+195*.31
+195*.9
+195*13.93
+175.5/2716.35
+1114*(12/5)
+(1114*(12/5))/2224
+set.seed(1)#
+install.packages("actuar")#
+library(actuar)
+y = rnorm(100,25)
+y = rnorm(100,5)
+set.seed(1)#
+#install.packages("actuar")#
+library(actuar)#
+#
+y = rnorm(100,5)
+library(SESYNCBayes)
+draw_mean()
+draw_mean = function(mu_0, sigma.sq_0, varsigma.sq, y) {#
+    mu_1 = ((mu_0/sigma.sq_0 + sum(y)/varsigma.sq))/(1/sigma.sq_0 + length(y)/varsigma.sq)#
+    sigma.sq_1 = 1/(1/sigma.sq_0 + length(y)/varsigma.sq)#
+    z = rnorm(1, mu_1, sqrt(sigma.sq_1))#
+    param = list(z = z, mu_1 = mu_1, sigma.sq_1 = sigma.sq_1)#
+    return(param)#
+}#
+#
+# normal likelihood with gamma prior conjugate relationship for variance,#
+# assuming mean is known alpha_0 is parameter of prior for variance beta_0#
+# is parameter of prior for variance Note that this uses scale#
+# parameterization for inverse gamma#
+#
+draw_var = function(alpha_0, beta_0, theta, y) {#
+    alpha_1 = alpha_0 + length(y)/2#
+    beta_1 = beta_0 + sum((y - theta)^2)/2#
+    z = rinvgamma(1, alpha_1, scale = beta_1)#
+    param = list(z = z, alpha_1 = alpha_1, beta_1 = beta_1)#
+    return(param)#
+}
+install.packages("rjags",dependencies=T)
+library(rjags)
+library(ESS575)
+install.packages("ESS575")
+version
+if(!require(installr)) {#
+  install.packages("installr"); #
+  require(installr)#
+}
+updateR()
+library(installR)
+library(installr)
+updateR()
+updateR(fast = FALSE, browse_news, install_R, copy_packages,#
+  copy_Rprofile.site, keep_old_packages, update_packages, start_new_R, quit_R,#
+  print_R_versions = TRUE, GUI = TRUE, to_checkMD5sums = FALSE,#
+  keep_install_file = FALSE, download_dir = tempdir(), silent = FALSE,#
+  setInternet2 = TRUE, cran_mirror = "https://cran.rstudio.com/", ...)
+updateR(TRUE)
+version
+install.packages("updateR")
+install.packages('devtools')
+library(devtools)
+install_github('andreacirilloac/updateR')
+library(updateR)
+updateR()
+library(stringi)
+updateR()
+updateR(admin_password = 'cordia11')
+install.packages("updateR")
+install.packages("rjags")
+library(rjags)
+install.packages("ESS575")
+install.packages(getwd(), repos = NULL, type = "source")
+install.packages("SESYNCBayes_0.3.0.tar.gz", repos = NULL, type = "source")
+library(SESYNCBayes)
+data(Logistic)
+Logistic
+names(Logistic)
+list.files()
+library(rjags)
+sink("LogisticJAGS.R")#
+cat("#
+#
+## Logistic example for Primer#
+model{#
+	# priors#
+		K ~ dunif(0, 4000)#
+		r ~ dunif (0, 2)#
+		sigma ~ dunif(0, 2)#
+		tau <- 1/sigma^2#
+	# likelihood#
+		for(i in 1:n){#
+			mu[i] <- r - r/K * x[i]#
+			y[i] ~ dnorm(mu[i], tau)#
+		}#
+}#
+",fill=TRUE)#
+sink()
+rm(list=ls())#
+#
+inits <- list(#
+	list(K=1500,r=0.2,sigma=1),#
+	list(K=1000,r=0.15,sigma=0.1),#
+	list(K=900,r=0.3,sigma=0.01))#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+#
+#Call JAGS#
+set.seed(1)#
+jm = jag.model("LogisticJAGS.R", data = data, inits = inits,#
+n.chains = length(inits), n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin)
+rm(list=ls())#
+#
+inits <- list(#
+	list(K=1500,r=0.2,sigma=1),#
+	list(K=1000,r=0.15,sigma=0.1),#
+	list(K=900,r=0.3,sigma=0.01))#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+#
+#Call JAGS#
+set.seed(1)#
+jm = jags.model("LogisticJAGS.R", data = data, inits = inits,#
+n.chains = length(inits), n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin)
+rm(list=ls())#
+#
+inits <- list(#
+	list(K=1500,r=0.2,sigma=1),#
+	list(K=1000,r=0.15,sigma=0.1),#
+	list(K=900,r=0.3,sigma=0.01))#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+#
+#Call JAGS#
+set.seed(1)#
+jm = jags.model("LogisticJAGS.R", data = data, inits = inits,#
+n.chains = length(inits), n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)
+dim(zm)
+length(zm)
+zm[1]
+head(zm[1])
+head(zm[[1]])
+head(zm[[1]][,1])
+install.packages("parallel")
+library(parallel)
+detectCores()
+rm(list=ls())#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+inits <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = inits,#
+n.chains = length(inits), n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stoCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+inits <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = inits,#
+n.chains = length(inits), n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stoCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNUm, (start +4), end)#
+}#
+#
+inits <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = inits,#
+n.chains = length(inits), n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stoCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+inits <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = inits,#
+n.chains = length(inits), n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stoCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = inits,#
+n.chains = length(inits), n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stoCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1 n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stopCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1, n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zm = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stopCluster(cl)
+zmCore
+out
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1, n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zmCore = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stopCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1, n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zmCore = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stopCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags); library(parallel)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1, n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zmCore = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stopCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1, n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zmCore = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stopCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[1] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1, n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zmCore = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter, n.thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stopCluster(cl)
+cl <- makeCluster(3)#
+pidList <- NA#
+for(i in 1:3){#
+pidNum <- capture.output(cl[[i]])#
+start <- regexpr("pid", pidNum)[[1]]#
+end <- nchar(pidNum)#
+pidList[i] <- substr(pidNum, (start + 4), end)}#
+initsP = list(#
+list(K = 1500, r = .2, sigma = 1,#
+.RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+list(K = 1000, r = .15, sigma = .1,#
+.RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+list(K = 900, r = .3, sigma = .01,#
+.RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList", "data", "initsP",#
+"n.adapt", "n.update", "n.iter"))#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1, n.adapt = n.adapt)#
+update(jm, n.iter = n.update)#
+zmCore = coda.samples(jm, variable.names = c("K", "r", "sigma", "tau"),#
+n.iter = n.iter, thin = 1)#
+return(as.mcmc(zmCore))#
+})#
+stopCluster(cl)
+rm(list=ls())#
+#
+cl <- makeCluster(3)#
+data <- list(#
+	n = nrow(Logistic),#
+	x = as.double(Logistic$PopulationSize),#
+	y = as.double(Logistic$GrowthRate))#
+#
+n.adapt = 5000#
+n.update = 10000#
+n.iter = 10000#
+pidList <- NA#
+for(i in 1:3){#
+#
+pidNum = capture.output(cl[[i]])#
+start = regexpr("pid",pidNum)[[1]]#
+end = nchar(pidNum)#
+pidList[i] = substr(pidNum, (start +4), end)#
+}#
+#
+initsP <- list(#
+	list(K=1500,r=0.2,sigma=1, .RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),#
+	list(K=1000,r=0.15,sigma=0.1, .RNG.name = "base::Marsaglia-Multicarry", .RNG.seed = 22),#
+	list(K=900,r=0.3,sigma=0.01, .RNG.name = "base::Wichmann-Hill", .RNG.seed = 373))#
+parallel::clusterExport(cl, c("pidList","data", "initsP","n.adapt","n.update","n.iter"))#
+#
+out <- clusterEvalQ(cl, {#
+library(rjags)#
+processNum <- which(pidList==Sys.getpid())#
+worker_inits <- initsP[[processNum]]#
+jm = jags.model("LogisticJAGS.R", data = data, inits = worker_inits,#
+n.chains = 1, n.adapt=n.adapt)#
+update(jm, n.iter=n.update)#
+zmCore = coda.samples(jm, variable.names = c("K","r","sigma","tau"),#
+n.iter= n.iter,thin=1)#
+return(as.mcmc(zmCore))#
+}#
+)#
+#
+stopCluster(cl)
+dim(out)
+length(out)
+head(out[1])
+head(out[[1]])
+library(coda)
+length(zm)
+summary(out)
+install.packagers("MCMCvis")
+install.packages("MCMCvis")
+library(MCMCvis)
+MCMCsummary(out)
+MCMCsummary(zmCore)
+MCMCsummary(zmCORE)
+rm(list=ls())
+inits = list(list(K = 1500, r = .2, sigma = 1),list(K = 1000, r = .15, sigma = .1),list(K = 900, r = .3, sigma = .01))data = list(n = nrow(Logistic),x = as.double(Logistic$PopulationSize),y = as.double(Logistic$GrowthRate))n.adapt = 5000n.update = 10000n.iter = 10000# Call to JAGSset.seed(1)jm = jags.model("LogisticJAGS.R", data = data, inits = inits,n.chains = length(inits), n.adapt = n.adapt)update(jm, n.iter = n.update)zm = coda.samples(jm, variable.names = c("K", "r", "sigma", "tau"),n.iter = n.iter, n.thin = 1)
+delman.diag(zm)
+gelman.diag(zm)
+zm
+gelman.diag(zm)
+data(IslandLizards)
+IslandLizards
+1300/54
+1/3.68
+100*.16
+library(geiger)
+install.packages("geiger")
+library(geiger)
+library(picante)
+install.packages("picante")
+library(picante)
+data(phylocom)
+treedata(phylocom$phylo,names(phylocom$sample[1,phylocom$sample[1,]>0]))
+names(phylocom$sample[1,phylocom$sample[1,]>0])
+treedata(phylocom$phylo,phylocom$sample[1,phylocom$sample[1,]>0])
+394*.07
+1000/70
+SiteCarbon
+w=SiteCarbon
+y = N20Emission
+data(N20Emission)
+head(w)
+range(w$mean)
+w$mean=w$mean/100
+w
+data(N2OEmission)#
+data(SiteCarbon)#
+y <- N2OEmission
+y
+head(y)
+head(SiteCarbon)
+head(w)
+library(ggplot)
+install.packages(ggplot)
+install.packages(ggplot2)
+install.packages("ggplot2")
+library(ggplot2)
+qplot(n.input, emission, data=y, color =  group)
+library(bien)
+library(BIEN_1.2.3)
+for(i in 1:length(y)){#
+  mu[i] <- prediction from model#
+  y[i] ~ dnorm(mu[i], tau)#
+  y.sim[i] ~ dnorm(mu[i], tau)#
+}#
+sd.data<-sd(y[])#
+sd.sim <-sd(y.sim[])#
+p.sd <- step(sd.sim - sd.data)
+1/.27
+my.file = read.csv("tmp.csv")
+getwd()
+set("~/GitHub/SwensonSESYNCWorkshop2017/day.1.ams")
+setwd("~/GitHub/SwensonSESYNCWorkshop2017/day.1.am")
+ls()
+list.files()
+source("test.code.R")
+a = 3+2
+a
+num.ind = 3+2
+num.ind
+?lm
+??regression
+random.data.1 = rnorm(40, mean = 0, sd = 1)
+random.data.1 = rnorm(40, mean =0,sd = 1)
+head(random.data.1)
+length(random.data.1)
+dim(random.data.1)
+random.data.2 = rnorm(40, mean =0,sd = 1)
+hist(random.data.1)
+hist(random.data.1,col="blue")
+hist(random.data.1,col="blue",xlab="Trait Value")
+hist(random.data.1,col="blue",xlab="Trait Value",main="")
+plot(random.data.2 ~ random.data.1)
+plot(random.data.2,random.data.1)
+plot(random.data.2 ~ random.data.1)
+lm(random.data.2 ~ random.data.1)
+lm(random.data.1 ~ random.data.2)
+mod = lm(random.data.2 ~ random.data.1)
+mod
+mod = lm(random.data.2 ~ random.data.1)
+summary(mod)
+rand.mat = matrix(c(1:10), ncol=2)
+rand.mat
+rand.mat = matrix(rnorm(10), ncol=2)
+rand.mat
+dim(rand.mat)
+head(rand.mat)
+is.matrix(rand.mat)
+colnames(rand.mat)=c("var.1","var.2")
+rand.mat
+lm(rand.mat[,1]~rand.mat[,2])
+lm(rand.mat$var.1~rand.mat$var.2)
+colnames(rand.mat)
+colnames(rand.mat)=c("v1","v2")
+lm(rand.mat$v1~rand.mat$v2)
+rand.mat$v1
+colnames(rand.mat)
